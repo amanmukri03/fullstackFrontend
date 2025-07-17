@@ -1,4 +1,4 @@
-const API_URL = 'https://fullstackbackend-production-1714.up.railway.app//api/products';
+const API_URL = 'https://fullstackbackend-production-1714.up.railway.app/api/products';
 
 async function fetchProducts() {
   const res = await fetch(API_URL);
