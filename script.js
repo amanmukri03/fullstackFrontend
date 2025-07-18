@@ -14,12 +14,15 @@ async function fetchProducts() {
 }
 
 async function addProduct() {
-  let name = document.getElementById('name').value;
-  let price = document.getElementById('price').value;
+  let nameInput = document.getElementById('name');
+  let priceInput = document.getElementById('price');
+
+  const name = nameInput.value;
+  const price = priceInput.value;
 
   await fetch(API_URL, {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, price })
   });
   name.value = ""
