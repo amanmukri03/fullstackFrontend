@@ -17,6 +17,8 @@ async function addProduct() {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({ name, price })
   });
+  name.value = ""
+  price.value = ""
 
   fetchProducts();
 }
