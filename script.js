@@ -14,8 +14,8 @@ async function fetchProducts() {
 }
 
 async function addProduct() {
-  const name = document.getElementById('name').value;
-  const price = document.getElementById('price').value;
+  let name = document.getElementById('name').value;
+  let price = document.getElementById('price').value;
 
   await fetch(API_URL, {
     method: 'POST',
