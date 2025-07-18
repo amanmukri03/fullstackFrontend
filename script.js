@@ -5,7 +5,12 @@ async function fetchProducts() {
   const products = await res.json();
 
   document.getElementById('product-list').innerHTML =
-    products.map(p => `<li>${p.name} - ₹${p.price}</li>`).join('');
+    products.map(p =>
+      `<li>
+        ${p.name} - ₹${p.price}
+        <button onclick="deleteProduct('${p._id}')" style="float:right; background:red; color:white; border:none; border-radius:4px; padding:4px 8px; cursor:pointer;">X</button>
+      </li>`
+    ).join('');
 }
 
 async function addProduct() {
@@ -16,6 +21,14 @@ async function addProduct() {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({ name, price })
+  });
+
+  fetchProducts();
+}
+
+async function deleteProduct(id) {
+  await fetch(`${API_URL}/${id}`, {
+    method: 'DELETE'
   });
 
   fetchProducts();
